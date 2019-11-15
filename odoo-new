@@ -7,9 +7,9 @@ NAME=$1
 VERSION=$2
 # TODO REPO_URL=$3
 set -e
-if [ -d $NAME ]; then
+if [ -d /dockers/$NAME ]; then
     echo "Project '$NAME' already exists"
     exit 1
 fi
-cp -r $(dirname "$0")/templates/$VERSION $NAME
+cp -r $(dirname "$0")/templates/$VERSION /dockers/$NAME
 $(dirname "$0")/odoo_up $NAME
