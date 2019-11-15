@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ $# != 2 ]; then
+    echo "USAGE: $0 NAME VERSION"
+    exit 1
+fi
+NAME=$1
+VERSION=$2
+# TODO REPO_URL=$3
+set -e
+if [ -d /dockers/$NAME ]; then
+    echo "Project '$NAME' already exists"
+    exit 1
+fi
+cp -r ./templates/$VERSION /dockers/$NAME
+./odoo_up $NAME
