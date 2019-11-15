@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.3'
 services:
   web:
     image: odoo:13.0
@@ -8,6 +8,8 @@ services:
       - web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
+    ports:
+      - "8069:8069"
   db:
     image: postgres
     environment:
