@@ -12,4 +12,4 @@ if [ -d /dockers/$NAME ]; then
     exit 1
 fi
 cp -r $(dirname "$0")/templates/$VERSION /dockers/$NAME
-$(dirname "$0")/odoo_up $NAME
+$(dirname "$0")/odoo-up $NAME
