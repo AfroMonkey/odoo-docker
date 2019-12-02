@@ -8,10 +8,8 @@ services:
       - web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
-    ports:
-      - "8069:8069"
   db:
-    image: postgres
+    image: postgres:11.5
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo

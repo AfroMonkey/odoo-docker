@@ -1,18 +1,15 @@
 version: '3.3'
 services:
   web:
-    image: odoo:13.0
+    image: odoo:10.0
     depends_on:
       - db
     volumes:
       - web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
-    ports:
-      - "8069:8069"
-      #  ssh -L 8088:172.19.0.3:8069 localhost -N
   db:
-    image: postgres:11.5
+    image: postgres
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
