@@ -2,7 +2,7 @@
 NAME=$1
 set -e
 cd "$(dirname "$0")"
-if [ ! -d /dockers/$NAME ]; then
+if [ ! -d $HOME/dockers/$NAME ]; then
     echo "Project '$NAME' does not exists"
     exit 1
 fi
@@ -11,5 +11,5 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
     ./odoo-down $NAME
     docker volume rm $NAME"_web-data"
     docker volume rm $NAME"_db-data"
-    rm -rf /dockers/$NAME
+    rm -rf $HOME/dockers/$NAME
 fi

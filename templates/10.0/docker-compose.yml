@@ -5,11 +5,10 @@ services:
     depends_on:
       - db
     volumes:
-      - web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
   db:
-    image: postgres
+    image: postgres:11.5
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
