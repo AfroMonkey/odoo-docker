@@ -11,5 +11,6 @@ if [ -d $HOME/dockers/$NAME ]; then
     echo "Project '$NAME' already exists"
     exit 1
 fi
+mkdir $HOME/dockers ||
 cp -r $(dirname "$0")/templates/$VERSION $HOME/dockers/$NAME
 $(dirname "$0")/odoo-up $NAME
