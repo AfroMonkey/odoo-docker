@@ -1,5 +1,5 @@
 #!/bin/bash
-NAME=$1
-set -e
-docker-compose -f "$HOME/dockers/$NAME/docker-compose.yml" up -d --build
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $NAME"_web_1"
+NAME=$1;
+set -e;
+docker-compose -f "$HOME/dockers/$NAME/docker-compose.yml" up -d --build;
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $NAME"_web_1";

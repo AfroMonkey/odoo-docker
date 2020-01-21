@@ -1,15 +1,17 @@
 #!/bin/bash
-NAME=$1
-set -e
-cd "$(dirname "$0")"
+SCRIPT=`realpath $0`;
+SCRIPTPATH=`dirname $SCRIPT`;
+NAME=$1;
+set -e;
+cd $SCRIPTPATH;
 if [ ! -d $HOME/dockers/$NAME ]; then
-    echo "Project '$NAME' does not exists"
-    exit 1
+    echo "Project '$NAME' does not exists";
+    exit 1;
 fi
-read -p "Are you sure? [y/n]"
+read -p "Are you sure? [y/n]";
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    ./odoo-down $NAME
-    docker volume rm $NAME"_web-data"
-    docker volume rm $NAME"_db-data"
-    rm -rf $HOME/dockers/$NAME
+    ./odoo-down $NAME;
+    docker volume rm $NAME"_web-data";
+    docker volume rm $NAME"_db-data";
+    rm -rf $HOME/dockers/$NAME;
 fi

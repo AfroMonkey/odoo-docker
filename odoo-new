@@ -1,16 +1,18 @@
 #!/bin/bash
+SCRIPT=`realpath $0`;
+SCRIPTPATH=`dirname $SCRIPT`;
 if [ $# != 2 ]; then
-    echo "USAGE: $0 NAME VERSION"
-    exit 1
+    echo "USAGE: $0 NAME VERSION";
+    exit 1;
 fi
-NAME=$1
-VERSION=$2
+NAME=$1;
+VERSION=$2;
 # TODO REPO_URL=$3
 set -e
 if [ -d $HOME/dockers/$NAME ]; then
-    echo "Project '$NAME' already exists"
-    exit 1
+    echo "Project '$NAME' already exists";
+    exit 1;
 fi
-mkdir $HOME/dockers ||
-cp -r $(dirname "$0")/templates/$VERSION $HOME/dockers/$NAME
-$(dirname "$0")/odoo-up $NAME
+mkdir $HOME/dockers ||;
+cp -r $SCRIPTPATH/templates/$VERSION $HOME/dockers/$NAME;
+$SCRIPTPATH/odoo-up $NAME;
