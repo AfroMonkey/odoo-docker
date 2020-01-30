@@ -28,3 +28,8 @@ services:
 volumes:
   web-data:
   db-data:
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
