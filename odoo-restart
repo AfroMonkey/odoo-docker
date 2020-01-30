@@ -3,5 +3,5 @@ SCRIPT=`realpath $0`;
 SCRIPTPATH=`dirname $SCRIPT`;
 NAME=$1;
 set -e;
-$SCRIPTPATH/odoo-stop $NAME;
-$SCRIPTPATH/odoo-up $NAME;
+$SCRIPTPATH/odoo-stop $PROJECT;
+$SCRIPTPATH/odoo-up $PROJECT;

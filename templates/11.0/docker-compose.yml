@@ -3,14 +3,21 @@ services:
   web:
     image: odoo:11.0
     restart: unless-stopped
+    hostname: {project}
     depends_on:
       - db
     volumes:
       - web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
+    environment:
+      - VIRTUAL_HOST={project}.homebrewsoft.com
+      - VIRTUAL_PORT=8069
+      - LETSENCRYPT_HOST={project}.homebrewsoft.com
+      - LETSENCRYPT_EMAIL=mail@homebrewsoft.com
   db:
     image: postgres:11.5
+    hostname: {project}_db
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
