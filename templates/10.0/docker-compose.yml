@@ -10,10 +10,10 @@ services:
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
     environment:
-      - VIRTUAL_HOST={project}.homebrewsoft.com
+      - VIRTUAL_HOST={project}.homebrewsoft.dev
       - VIRTUAL_PORT=8069
-      - LETSENCRYPT_HOST={project}.homebrewsoft.com
-      - LETSENCRYPT_EMAIL=mail@homebrewsoft.com
+      - LETSENCRYPT_HOST={project}.homebrewsoft.dev
+      - LETSENCRYPT_EMAIL=mail@homebrewsoft.dev
   db:
     image: postgres:11.5
     hostname: {project}_db
