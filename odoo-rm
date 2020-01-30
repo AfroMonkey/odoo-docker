@@ -1,7 +1,7 @@
 #!/bin/bash
 SCRIPT=`realpath $0`;
 SCRIPTPATH=`dirname $SCRIPT`;
-NAME=$1;
+PROJECT=$1;
 set -e;
 cd $SCRIPTPATH;
 if [ ! -d $HOME/dockers/$PROJECT ]; then

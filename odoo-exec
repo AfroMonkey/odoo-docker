@@ -1,5 +1,5 @@
 #!/bin/bash
-NAME=$1;
+PROJECT=$1;
 set -e;
 
 docker exec -it $PROJECT"_web_1" odoo --http-port 8070 --db_host db --db_port 5432 --db_user odoo --db_password odoo ${@:2} ||
