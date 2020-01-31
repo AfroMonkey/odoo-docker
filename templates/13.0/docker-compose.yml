@@ -14,7 +14,10 @@ services:
       - VIRTUAL_HOST={project}.homebrewsoft.dev
       - VIRTUAL_PORT=8069
       - LETSENCRYPT_HOST={project}.homebrewsoft.dev
-      - LETSENCRYPT_EMAIL=mail@homebrewsoft.dev
+      - LETSENCRYPT_EMAIL=moisalejandro@gmail.com
+    networks:
+      - nginx-proxy
+      - internal
   db:
     image: postgres:11.5
     hostname: {project}_db
@@ -30,6 +33,7 @@ volumes:
   db-data:
 
 networks:
-  default:
-    external:
-      name: nginx-proxy
+  nginx-proxy:
+    external: true
+  internal:
+    external: false
