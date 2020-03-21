@@ -3,4 +3,5 @@ PROJECT=$1;
 set -e;
 
 docker exec -it $PROJECT"_web_1" odoo --http-port 8070 --db_host db --db_port 5432 --db_user odoo --db_password odoo ${@:2} ||
-docker exec -it $PROJECT"_web_1" odoo --xmlrpc-port 8070 --db_host db --db_port 5432 --db_user odoo --db_password odoo ${@:2};
+docker exec -it $PROJECT"_web_1" odoo --xmlrpc-port 8070 --db_host db --db_port 5432 --db_user odoo --db_password odoo ${@:2} ||
+docker exec -it $PROJECT"_web_1" odoo.py --xmlrpc-port 8070 --db_host db --db_port 5432 --db_user odoo --db_password odoo ${@:2};
